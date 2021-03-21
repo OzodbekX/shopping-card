@@ -36,5 +36,18 @@ body #root {
     display: flex;
     justify-content: center;
     align-items: center; }
+  .grid-container .products {
+    list-style-type: none;
+    flex-wrap: wrap; }
+    .grid-container .products .li {
+      min-width: 300px; }
+      .grid-container .products .li .product {
+        height: 100% !important;
+        flex-direction: column !important;
+        justify-content: space-between !important; }
+        .grid-container .products .li .product .card-footer {
+          margin-top: auto !important; }
+  .grid-container img {
+    height: 300px; }
 
 /*# sourceMappingURL=index.css.map */

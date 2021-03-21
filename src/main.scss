@@ -46,6 +46,24 @@ body{
     justify-content: center;
     align-items: center;
   }
+  .products{
+    list-style-type: none;
+    flex-wrap: wrap;
+    .li{
 
+      min-width: 300px;
+      .product{
+        height: 100% !important;
+        flex-direction: column!important;
+        justify-content: space-between!important;
+        .card-footer{
+          margin-top: auto!important;
+        }
+      }
+    }
+  }
+img{
+  height: 300px;
+}
 
 }
