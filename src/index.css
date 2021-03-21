@@ -1,0 +1,40 @@
+html {
+  font-size: 80%;
+  box-sizing: border-box; }
+
+body * {
+  font-size: 1.6rem;
+  font-family: SansSerif; }
+body #root {
+  height: 100vh;
+  margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-auto-rows: 5rem 1fr 5rem;
+  grid-auto-columns: 1fr;
+  height: 100%; }
+  .grid-container a:hover {
+    color: lightseagreen; }
+  .grid-container header {
+    padding: 0.5rem;
+    grid-area: header;
+    background-color: #203040;
+    color: white;
+    display: flex;
+    align-items: center; }
+    .grid-container header a {
+      text-decoration: none;
+      color: white; }
+  .grid-container main {
+    grid-area: main; }
+  .grid-container footer {
+    grid-area: footer;
+    background-color: #203040;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+/*# sourceMappingURL=index.css.map */
