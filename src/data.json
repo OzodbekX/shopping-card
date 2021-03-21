@@ -5,48 +5,48 @@
       "title":"Apple MacBook Air MJVM2LL/A",
       "image": "images/MacBook1.jpg",
       "weight": "2.38 lbs (1.08 kg)",
-      "price": "$409.78",
-      "processorType": "Core i5"
+      "price": "409.78",
+      "processorType": ["i3","i5","i7","i9"]
     },
     {
       "id": "MacBook2",
       "title":"Apple MacBook Air (MD760LL/A)",
       "image": "images/MacBook2.jpg",
       "weight": "2.96 lbs (1.34 kg)",
-      "price": "$469.00",
-      "processorType": "Intel Iris 5100"
+      "price": "469.00",
+      "processorType": ["i3","i5","i7","i9"]
     },
     {
       "id": "MacBook3",
       "title":"Apple MacBook Pro (MGX82LL/A-cr)",
       "image": "images/MacBook3.jpg",
       "weight": "3.46 lbs (1.57 kg)",
-      "price": "$634.00",
-      "processorType": "Intel"
+      "price": "634.00",
+      "processorType": ["i5","i7","i9","i11"]
     },
     {
       "id": "MacBook4",
       "title":"Apple MacBook Pro (MGX82LL/A-cr)",
       "image": "images/MacBook4.jpg",
       "weight": "2.96 lbs (1.34 kg)",
-      "price": "$448.99",
-      "processorType": "Intel Core i5-5250U"
+      "price": "448.99",
+      "processorType": ["i3","i5","i7"]
     },
     {
       "id": "MacBook5",
       "title":"Apple MacBook Pro (MGX82LL/A-cr)",
       "image": "images/MacBook5.jpg",
       "weight": "4.41 lbs (2 kg)",
-      "price": "$578.90",
-      "processorType": "Intel Core i5 Series"
+      "price": "578.90",
+      "processorType": ["i5","i7","i9"]
     },
     {
       "id": "MacBook6",
       "title":"Apple MacBook Air MJVE2LL/A ",
       "image": "images/MacBook6.jpg",
       "weight": "4.41 lbs (2 kg)",
-      "price": "$494.99",
-      "processorType": "Intel Core i5 Series"
+      "price": "494.99",
+      "processorType": ["i3","i5","i7","i9"]
     }
   ]
 

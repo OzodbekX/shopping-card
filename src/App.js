@@ -17,6 +17,7 @@ class  App extends React.Component{
         <a href="/">React Shoping Cart</a>
       </header>
         <main>
+
            <Products/>
         </main>
         <footer>
