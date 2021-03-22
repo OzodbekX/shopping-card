@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import data from "../data.json"
+import formoatCurrency from "../util";
 class Productslist extends Component {
 
 
@@ -18,9 +19,10 @@ class Productslist extends Component {
                                 </a>
                                 <div className='producPrise card-footer d-flex justify-content-around'>
                                     <div>
-                                       $ {product.price}
+                                       $ {(product.price) }
                                     </div>
-                                    <button className='btn-sm btn-primary rounded mb-1'>
+                                    <button onClick={()=>this.props.addToCart(product)}
+                                            className='btn-sm btn-primary rounded mb-1'>
                                         Add To Cart
                                     </button>
                                 </div>

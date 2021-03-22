@@ -2,17 +2,45 @@ import React, {Component} from 'react';
 import data from "./data.json";
 import Productslist from "./components/productslist";
 import Filter from "./components/Filter";
+import Cart from "./components/Cart";
 
 class Products extends Component {
     constructor(props) {
         super(props);
         this.state={
             products:data.products,
+            cartItems: [],
             size:"",
             sort:'',
         }
         this.filterProducts = this.filterProducts.bind(this);
     }
+    removeFromcart=(product)=>{
+        const cartItems=this.state.cartItems.slice();
+        this.setState({
+            cartItems:cartItems.filter(x=>x.id!==product.id)
+        })
+
+
+    }
+    addToCart=(pruduct)=>{
+        const cartItems=this.state.cartItems.slice();
+        let alreadyInCart=false;
+        cartItems.forEach(item=>{
+            if(item.id===pruduct.id){
+                item.count++;
+                alreadyInCart=true;
+
+            }
+        });
+        if(!alreadyInCart){
+            cartItems.push({...pruduct,count:1})
+        }
+        this.setState({
+            cartItems:cartItems
+        })
+
+    };
     sortProducts=(event)=>{
         const sort=event.target.value;
         this.setState((state)=>({
@@ -21,13 +49,10 @@ class Products extends Component {
                 .slice()
                 .sort((a,b)=>
                     sort==="lowest"
-                    ?a.price < b.price ?
-                        -1:1
+                    ?a.price < b.price ? -1:1
                         :sort==="highest"?
-                        a.price>b.price ?
-                            -1:1
-                        : a._id>b._id?
-                            -1:1
+                        a.price>b.price ? -1:1
+                        : a._id>b._id? -1:1
                 ),
 
         }))
@@ -57,10 +82,12 @@ class Products extends Component {
                                 filterProducts={this.filterProducts}
                                 sortProducts={this.sortProducts}
                         /><hr className='border-info'/>
-                        <Productslist products={this.state.products}/>
+                        <Productslist products={this.state.products} addToCart={this.addToCart}/>
                     </div>
                     <div className="col-3 sidebar">
-                        Card Items
+                        <Cart
+                            removeFromcart={this.removeFromcart}
+                            cartItems={this.state.cartItems}/>
                     </div>
                 </div>
             </div>
