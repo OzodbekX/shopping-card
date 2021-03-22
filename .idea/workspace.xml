@@ -50,6 +50,23 @@
       <recent name="D:\next\shopping mall\index\src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.server" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,7 +78,7 @@
       <workItem from="1616313507887" duration="23590000" />
       <workItem from="1616389606158" duration="332000" />
       <workItem from="1616389940810" duration="15764000" />
-      <workItem from="1616421966016" duration="2661000" />
+      <workItem from="1616421966016" duration="10396000" />
     </task>
     <servers />
   </component>

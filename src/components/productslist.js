@@ -51,7 +51,7 @@ class Productslist extends Component {
                 {
                     this.state.modalpro &&
 
-                        <Zoom>
+                        <Zoom >
                             <Modal isOpen={true}>
                                 <Zoom>
                                     <button className='close' onClick={this.closeModal} >&times;</button>
@@ -59,8 +59,8 @@ class Productslist extends Component {
                                         <img src={this.state.modalpro.image} alt=""/>
                                         <div>
                                             <div>{this.state.modalpro.title}</div>
-                                            <div>{this.state.modalpro.weight}</div>
-                                            <div>{this.state.modalpro.price}</div>
+                                            <div>Weight {this.state.modalpro.weight}</div>
+                                            <div>Price ${this.state.modalpro.price}</div>
                                             <div>Available processor type: {this.state.modalpro.processorType.map(
                                                 (types)=>(
                                                     <span>
