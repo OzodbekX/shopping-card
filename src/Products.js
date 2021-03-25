@@ -3,7 +3,8 @@ import data from "./data.json";
 import Productslist from "./components/productslist";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
-
+import {store} from  "./redux/store"
+import {Provider} from "react-redux";
 class Products extends Component {
     constructor(props) {
         super(props);
@@ -80,6 +81,7 @@ class Products extends Component {
     }
     render() {
         return (
+            <Provider store={store}>
             <div className='container-fluid'>
 
                 <div className='row'>
@@ -100,6 +102,7 @@ class Products extends Component {
                     </div>
                 </div>
             </div>
+            </Provider>
         );
     }
 }

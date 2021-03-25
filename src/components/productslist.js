@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
+import {fetchProducts} from "../redux/actions/productActions";
+import {connect} from "react-redux";
+
 class Productslist extends Component {
     constructor() {
         super();
@@ -9,6 +12,10 @@ class Productslist extends Component {
             modalpro:null,
         }
     }
+    componentDidMount() {
+        this.props.fetchProducts()
+    }
+
     openModal=(product)=>{
         this.setState({
             modalpro:product
@@ -24,29 +31,35 @@ class Productslist extends Component {
         return (
             <div className='filter'>
                 <Fade bottom cascade>
-                    <ul className='products d-flex flex-wrap'>
-                        {this.props.products.map((product)=>(
-                            <div  key={product.id} className='li col-4 h-100'>
-                                <div className="product h-100">
-                                    <a onClick={()=>this.openModal(product)}  href={'#'+product._id}>
-                                        <img className='img-fluid' src={product.image} alt="#"/>
-                                        <p>
-                                            {product.title}
-                                        </p>
-                                    </a>
-                                    <div className='producPrise card-footer d-flex justify-content-around'>
-                                        <div>
-                                            $ {(product.price) }
+                    {!this.props.products?(<div>Loading...</div>):
+                        (<div>
+                                <ul className='products d-flex flex-wrap'>
+                                    {this.props.products.map((product)=>(
+                                        <div  key={product.id} className='li col-4 h-100'>
+                                            <div className="product h-100">
+                                                <a onClick={()=>this.openModal(product)}  href={'#'+product._id}>
+                                                    <img className='img-fluid' src={product.image} alt="#"/>
+                                                    <p>
+                                                        {product.title}
+                                                    </p>
+                                                </a>
+                                                <div className='producPrise card-footer d-flex justify-content-around'>
+                                                    <div>
+                                                        $ {(product.price) }
+                                                    </div>
+                                                    <button onClick={()=>this.props.addToCart(product)}
+                                                            className='btn-sm btn-primary rounded mb-1'>
+                                                        Add To Cart
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button onClick={()=>this.props.addToCart(product)}
-                                                className='btn-sm btn-primary rounded mb-1'>
-                                            Add To Cart
-                                        </button>
-                                    </div>
-                                </div>
+                                    ))}
+                                </ul>
                             </div>
-                        ))}
-                    </ul>
+                        )
+                    }
+
                 </Fade>
                 {
                     this.state.modalpro &&
@@ -90,5 +103,4 @@ class Productslist extends Component {
         );
     }
 }
-
-export default Productslist;
+export default connect((state)=>({products:state.products.items}),{fetchProducts}) (Productslist);
