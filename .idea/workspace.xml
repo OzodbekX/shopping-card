@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d389108a-e5d0-44be-bc6c-daf921b380a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/productslist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productslist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +73,9 @@
       <updated>1616512330474</updated>
       <workItem from="1616512334345" duration="10136000" />
       <workItem from="1616688683774" duration="5952000" />
+      <workItem from="1616775233498" duration="9426000" />
+      <workItem from="1616866424026" duration="3113000" />
+      <workItem from="1616871001828" duration="1045000" />
     </task>
     <servers />
   </component>

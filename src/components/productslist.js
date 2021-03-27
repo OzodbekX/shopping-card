@@ -74,7 +74,7 @@ class Productslist extends Component {
                                             <div>{this.state.modalpro.title}</div>
                                             <div>Weight {this.state.modalpro.weight}</div>
                                             <div>Price ${this.state.modalpro.price}</div>
-                                            <div>Available processor type: {this.state.modalpro.processorType.map(
+                                            <div>Available processor types: {this.state.modalpro.processorType.map(
                                                 (types)=>(
                                                     <span>
                                                         {" "}
@@ -103,4 +103,6 @@ class Productslist extends Component {
         );
     }
 }
-export default connect((state)=>({products:state.products.items}),{fetchProducts}) (Productslist);
+export default connect((state)=>({
+    products:state.products.filteredItems}),
+    {fetchProducts}) (Productslist);
