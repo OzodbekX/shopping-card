@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d389108a-e5d0-44be-bc6c-daf921b380a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/productslist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/productslist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,11 @@
       <workItem from="1616688683774" duration="5952000" />
       <workItem from="1616775233498" duration="9426000" />
       <workItem from="1616866424026" duration="3113000" />
-      <workItem from="1616871001828" duration="1045000" />
+      <workItem from="1616871001828" duration="1672000" />
+      <workItem from="1616910654127" duration="16829000" />
+      <workItem from="1616956243101" duration="3217000" />
+      <workItem from="1616993068946" duration="13448000" />
+      <workItem from="1617021410831" duration="367000" />
     </task>
     <servers />
   </component>

@@ -1,17 +1,22 @@
 import {productsRedusers} from "./reducers/productRedusers";
 import thunk from "redux-thunk";
 import {applyMiddleware, compose} from "redux";
+import {cartReducer} from "./reducers/cartReducers";
+import {combineReducers} from "redux";
 
-const {combineReducers} = require("redux");
+//const {combineReducers} = require("redux");
 const {createStore} = require("redux");
 
 
 const initialState={};
-const composeEnhancer=window.__REDUX_DEVTOOLS_EXTENTION_COMPOSE__ ||compose;
+if(localStorage.getItem("cartItems")){
+        initialState.cart={items:JSON.parse(localStorage.getItem("cartItems"))}
+}
 
-export const store=createStore(combineReducers({
-    products:productsRedusers,
+export const store=createStore(
+    combineReducers({
+        products:productsRedusers,
+        cart:cartReducer,
 }),initialState,
     compose(applyMiddleware(thunk))
 );
-export default store;

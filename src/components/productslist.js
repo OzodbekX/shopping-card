@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import {fetchProducts} from "../redux/actions/productActions";
 import {connect} from "react-redux";
+import {addToCart} from "../redux/actions/cartActions";
 
 class Productslist extends Component {
     constructor() {
@@ -47,7 +48,7 @@ class Productslist extends Component {
                                                     <div>
                                                         $ {(product.price) }
                                                     </div>
-                                                    <button onClick={()=>this.props.addToCart(product)}
+                                                    <button onClick={()=>this.props.addToCart(this.props.cartItems,product)}
                                                             className='btn-sm btn-primary rounded mb-1'>
                                                         Add To Cart
                                                     </button>
@@ -59,7 +60,6 @@ class Productslist extends Component {
                             </div>
                         )
                     }
-
                 </Fade>
                 {
                     this.state.modalpro &&
@@ -87,7 +87,7 @@ class Productslist extends Component {
                                             <button
                                                 onClick={()=>{
                                                     this.closeModal();
-                                                    this.props.addToCart(this.state.modalpro)
+                                                    this.props.addToCart(this.props.cartItems,this.state.modalpro)
                                                 }}
                                                 className='btn-success'>
                                                 Add To Cart
@@ -103,6 +103,9 @@ class Productslist extends Component {
         );
     }
 }
-export default connect((state)=>({
-    products:state.products.filteredItems}),
-    {fetchProducts}) (Productslist);
+const mapStateToProps=state=>({
+    products:state.products.filteredItems,
+    cartItems:state.cart.items,
+    items:state.cart.cartItems,
+})
+export default connect(mapStateToProps,{fetchProducts, addToCart})(Productslist);

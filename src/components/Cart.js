@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Fade from "react-reveal/Fade";
+import { removeFromCart} from "../redux/actions/cartActions";
+import {connect} from "react-redux";
+
 
 class Cart extends Component {
     constructor(props) {
@@ -30,25 +33,25 @@ class Cart extends Component {
 
 
     render() {
-        const {cartItems}=this.props;
+        const { cartItems }=this.props;
         return (
             <div>
                 {cartItems.length===0 ?(<div>Card is empty</div>):(
                     <div>You have {cartItems.length} items  in the cart {""}</div>
-                )}                        <hr className='border-info border-bottom-1'/>
-
+                )}
+                <hr className='border-info border-bottom-1'/>
                 <div>
                    <Fade left cascade>
                        <ul className='cart-items'>
-                           {cartItems.map(item=>(
-                               <li className='list-unstyled' key={item.id}>
+                           {cartItems.map(items=>(
+                               <li className='list-unstyled' key={items._id}>
                                    <div className='d-flex'>
-                                       <img className=' w-25 h-25' src={item.image} alt="#"/>
+                                       <img className=' w-25 h-25' src={items.image} alt="#"/>
                                        <div>
-                                           <div className='h5'>{item.title}</div>
+                                           <div className='h5'>{items.title}</div>
                                            <div className='d-flex'>
-                                               {item.count}x $ {item.price} <div className='invisible'>d</div>
-                                               <button onClick={()=>this.props.removeFromcart(item)} className='btn btn-sm btn-secondary'>Remove</button>
+                                               {items.count}x $ {items.price} <div className='invisible'>d</div>
+                                               <button onClick={()=>this.props.removeFromCart(this.props.cartItems,items)} className='btn btn-sm btn-secondary'>Remove</button>
                                            </div>
                                        </div>
                                    </div>
@@ -57,7 +60,7 @@ class Cart extends Component {
                        </ul>
                    </Fade>
                 </div>
-                {cartItems.length!==0 && (
+                {!cartItems.length===0 && (
                     <div>
                         <div>
                         <div className='d-flex text-center'>
@@ -108,11 +111,12 @@ class Cart extends Component {
                         </div>
                     </Fade>
                 )}
-
-
             </div>
         );
     }
 }
+const mapStateToProps=state=>({
+    cartItems: state.cart.items
+})
 
-export default Cart;
+export default connect(mapStateToProps,{removeFromCart})(Cart);
