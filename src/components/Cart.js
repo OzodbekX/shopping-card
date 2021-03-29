@@ -18,6 +18,7 @@ class Cart extends Component {
     handleInput=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
+
     creatOrder=(e)=>{
         e.preventDefault();
         const order={
@@ -60,7 +61,7 @@ class Cart extends Component {
                        </ul>
                    </Fade>
                 </div>
-                {!cartItems.length===0 && (
+                {!(this.props.cartItems.length===0) && (
                     <div>
                         <div>
                         <div className='d-flex text-center'>
