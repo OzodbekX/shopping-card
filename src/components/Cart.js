@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Fade from "react-reveal/Fade";
 import { removeFromCart} from "../redux/actions/cartActions";
 import {connect} from "react-redux";
+import {clearOrder, createOrder} from "../redux/actions/createOrder";
+import {Modal} from "react-modal";
+import {Zoom} from "react-reveal";
 
 
 class Cart extends Component {
@@ -16,31 +19,54 @@ class Cart extends Component {
 
     }
     handleInput=(e)=>{
+        console.log(e)
+        console.log(this.state)
         this.setState({[e.target.name]:e.target.value})
     }
 
-    creatOrder=(e)=>{
-        e.preventDefault();
-        const order={
+    createOrder=(e)=>{
+            const order=    {
             name:this.state.name,
             email:this.state.email,
             address:this.state.address,
             cartItems:this.state.cartItems,
-
+            total:this.props.cartItems.reduce((a,c)=>(a+c.price*c.count),0 ),
         }
         this.props.createOrder(order);
-
     }
-
-
+    closeModal=()=>{
+        this.props.clearOrder();
+    }
     render() {
-        const { cartItems }=this.props;
+        const { cartItems,order }=this.props;
         return (
             <div>
                 {cartItems.length===0 ?(<div>Card is empty</div>):(
                     <div>You have {cartItems.length} items  in the cart {""}</div>
                 )}
+
                 <hr className='border-info border-bottom-1'/>
+                {order &&
+                <Modal isOpen={true}
+                    onRequestClose={this.closeModal}
+                >
+                    <button onClick={this.closeModal}>X</button>
+                    <Zoom>
+                        <div className="cart">
+                            <h3>Your order has ben placed</h3>
+                            <h2>Order number : {order._id}</h2>
+                            <h2>Name : {order.name}</h2>
+                            <h2>Email : {order.email}</h2>
+                            <h2>Address : {order.address()}</h2>
+                            <h2>Total :$ {order.total}</h2>
+                            <h2>cart items : {order.cartItems.map(item=>(
+                                <div>
+                                    {item.count}X{item.title}
+                                </div>
+                            ))}</h2>
+                        </div>
+                    </Zoom>
+                </Modal>}
                 <div>
                    <Fade left cascade>
                        <ul className='cart-items'>
@@ -78,14 +104,14 @@ class Cart extends Component {
                 {this.state.showCheckout &&(
                     <Fade right>
                         <div>
-                            <form onSubmit={this.creatOrder} action="">
+                            <form onSubmit={this.createOrder}>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">Email address</label>
                                     <input
                                         name="email"
                                         type="email" className="form-control" required id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter email"
-                                        onChange={this.handleInput}
+                                        onChange={(e)=>this.handleInput(e)}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -94,7 +120,7 @@ class Cart extends Component {
                                         required
                                         name="name"
                                         type="text" className="form-control" id="exampleInputEmail2"
-                                        onChange={this.handleInput}
+                                        onChange={(e)=>this.handleInput(e)}
                                         placeholder="Enter name"/>
                                 </div>
                                 <div className="form-group">
@@ -102,11 +128,11 @@ class Cart extends Component {
                                     <input
                                         required
                                         name="address"
-                                        onChange={this.handleInput}
+                                        onChange={(e)=>this.handleInput(e)}
                                         type="text" className="form-control" id="exampleInputEmail3"
                                         placeholder="Enter name"/>
                                 </div>
-                                <button className='btn btn-success' type='submit' >Submit</button>
+                                <button  className='btn btn-success' type='submit' >Submit</button>
                             </form>
 
                         </div>
@@ -117,7 +143,8 @@ class Cart extends Component {
     }
 }
 const mapStateToProps=state=>({
-    cartItems: state.cart.items
+    cartItems: state.cart.items,
+    order:state.order.order
 })
 
-export default connect(mapStateToProps,{removeFromCart})(Cart);
+export default connect(mapStateToProps,{removeFromCart, createOrder, clearOrder})(Cart);
